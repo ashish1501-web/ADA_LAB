@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include<time.h>
+clock_t start,end;
+
+void delay()
+{
+    for(int i=0;i<50000;i++)
+    {
+        for(int j=0;j<500;j++)
+        {
+            
+        }
+    }
+}
+
+void insertionSort(int arr[],int n)
+{  delay();
+    for(int i=0;i<n;i++)
+    {
+        int j=i-1;
+        int key=arr[i];
+        
+        while(j>=0 && arr[j]>key)
+        {
+            arr[j+1]=arr[j];
+            j--;
+        }
+        arr[j+1]=key;
+        
+    }
+}
+int main()
+{
+    int n;
+    printf("Enter size of the array:");
+    scanf("%d",&n);
+    printf("Enter the array elements:");
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    start=clock();
+    insertionSort(arr,n);
+    
+    end=clock()-start;
+    
+    for(int i=0;i<n;i++)
+    {
+        printf("%d\t",arr[i]);
+    }
+    
+    printf("\nTime for the loop:%f",(double)end/CLOCKS_PER_SEC);
+    return 0;
+}
